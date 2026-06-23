@@ -45,7 +45,7 @@ describe("suno stdio MCP server", () => {
 
     const tools = await client.listTools();
     const names = tools.tools.map((tool) => tool.name).sort();
-    expect(names).toEqual(["check_pricing","cover_audio","create_mashup","extend_music","get_task","text_to_music","text_to_sound"]);
+    expect(names).toEqual(["check_pricing","cover_audio","create_mashup","extend_music","generate_lyrics","get_task","text_to_music","text_to_sound"]);
 
     const pricing = await client.callTool({ name: "check_pricing", arguments: {} });
     const content = pricing.content?.[0];

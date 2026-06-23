@@ -1,6 +1,6 @@
 {
   "name": "@runapi.ai/suno-mcp",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "RunAPI MCP server for one model line: create tasks, poll status, and check pricing with one API key.",
   "type": "module",
   "main": "dist/src/index.js",
@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "@runapi.ai/mcp-core": "0.1.0",
+    "@runapi.ai/mcp-core": "0.1.1",
     "zod": "^3.25.76"
   },
   "devDependencies": {

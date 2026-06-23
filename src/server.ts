@@ -43,9 +43,14 @@ function lineModels(contract: Contract): string[] {
   return [...seen];
 }
 
+// No-model endpoints (models: []) carry their fields under the "_" roster.
+function rostersForAction(action: ContractAction): string[] {
+  return action.models.length > 0 ? action.models : ["_"];
+}
+
 function fieldsForAction(action: ContractAction): Record<string, ContractField> {
   const fields: Record<string, ContractField> = {};
-  for (const model of action.models) {
+  for (const model of rostersForAction(action)) {
     const roster = action.fields_by_model[model] ?? {};
     for (const [name, field] of Object.entries(roster)) {
       if (RESERVED_FIELDS.has(name)) {
@@ -60,7 +65,7 @@ function fieldsForAction(action: ContractAction): Record<string, ContractField> 
 }
 
 function rulesForAction(action: ContractAction): InputRule[] {
-  for (const model of action.models) {
+  for (const model of rostersForAction(action)) {
     const roster = action.fields_by_model[model] ?? {};
     const rules = (roster as Record<string, unknown>).rules;
     if (Array.isArray(rules) && rules.length > 0) {

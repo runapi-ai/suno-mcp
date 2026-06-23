@@ -2024,6 +2024,23 @@
         }
       }
     },
+    "suno/generate-lyrics": {
+      "model": "Suno",
+      "endpoint": "generate_lyrics",
+      "models": [],
+      "fields_by_model": {
+        "_": {
+          "prompt": {
+            "type": "string",
+            "description": "Lyrics generation prompt."
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "Webhook URL for async notifications."
+          }
+        }
+      }
+    },
     "suno/text-to-music": {
       "model": "Suno",
       "endpoint": "text_to_music",
