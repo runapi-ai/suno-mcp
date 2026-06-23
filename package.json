@@ -1,0 +1,60 @@
+{
+  "name": "@runapi.ai/suno-mcp",
+  "version": "0.1.0",
+  "description": "RunAPI MCP server for one model line: create tasks, poll status, and check pricing with one API key.",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "bin": {
+    "suno-mcp": "dist/bin/suno-mcp.js"
+  },
+  "files": [
+    "dist",
+    "data/contract.json",
+    "data/pricing.json",
+    "examples",
+    "server.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/index.ts",
+    "prepack": "npm run build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "runapi",
+    "mcp",
+    "model-context-protocol",
+    "ai"
+  ],
+  "author": "RunAPI",
+  "license": "Apache-2.0",
+  "homepage": "https://runapi.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runapi-ai/suno-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/runapi-ai/suno-mcp/issues"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@runapi.ai/mcp-core": "0.1.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.14"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "mcpName": "io.github.runapi-builder/suno-mcp"
+}
