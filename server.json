@@ -1,23 +1,23 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.runapi-builder/suno-mcp",
-  "description": "RunAPI MCP server for Suno: create tasks, poll status, and check pricing.",
+  "description": "RunAPI MCP server for Suno: create tasks, poll status, check pricing.",
   "repository": {
     "url": "https://github.com/runapi-ai/suno-mcp",
     "source": "github"
   },
-  "version": "0.1.3",
+  "version": "0.1.4",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "@runapi.ai/suno-mcp",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "transport": {
         "type": "stdio"
       },
       "environmentVariables": [
         {
-          "description": "RunAPI API key. Get one at https://runapi.ai",
+          "description": "RunAPI API key. Create one at https://runapi.ai",
           "isRequired": true,
           "format": "string",
           "isSecret": true,

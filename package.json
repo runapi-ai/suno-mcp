@@ -1,7 +1,7 @@
 {
   "name": "@runapi.ai/suno-mcp",
-  "version": "0.1.3",
-  "description": "Suno MCP server for RunAPI — create Suno AI tasks (cover audio, create mashup, extend music), poll status, and check pricing across 6 models with one API key.",
+  "version": "0.1.4",
+  "description": "RunAPI Suno MCP server for multimodal generation: create tasks, poll results, and check pricing across 6 model variants from Claude Code, Codex, Cursor, and VS Code.",
   "type": "module",
   "main": "dist/src/index.js",
   "bin": {
@@ -25,12 +25,16 @@
   },
   "keywords": [
     "runapi",
+    "runapi-ai",
     "mcp",
+    "mcp-server",
     "model-context-protocol",
-    "ai",
+    "ai-agents",
+    "claude-code",
+    "cursor",
+    "vscode",
     "suno",
     "suno-mcp",
-    "suno-ai",
     "suno-api",
     "music-generation",
     "ai-music",
@@ -39,13 +43,11 @@
     "cover-audio",
     "create-mashup",
     "extend-music",
-    "generate-lyrics",
-    "text-to-music",
-    "text-to-sound"
+    "generate-lyrics"
   ],
   "author": "RunAPI",
   "license": "Apache-2.0",
-  "homepage": "https://runapi.ai",
+  "homepage": "https://runapi.ai/models/suno",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/runapi-ai/suno-mcp.git"
