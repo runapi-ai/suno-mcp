@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@runapi.ai/suno-mcp"><img src="https://img.shields.io/npm/v/%40runapi.ai/suno-mcp?style=flat-square&color=blue" alt="npm version"></a>
-  <a href="https://github.com/runapi-ai/suno-mcp"><img src="https://img.shields.io/badge/GitHub-runapi--ai%2Fsuno-mcp-24292f?style=flat-square" alt="GitHub repository"></a>
+  <a href="https://github.com/runapi-ai/suno-mcp"><img src="https://img.shields.io/badge/GitHub-runapi--ai%2Fsuno--mcp-24292f?style=flat-square" alt="GitHub repository"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue?style=flat-square" alt="Apache-2.0 license"></a>
   <img src="https://img.shields.io/badge/Type-MCP_Server-blue?style=flat-square" alt="MCP Server">
   <img src="https://img.shields.io/badge/Models-6-16a34a?style=flat-square" alt="6 models">
