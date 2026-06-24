@@ -11,15 +11,12 @@ import {
   taskStatus,
   type Contract,
   type ContractAction,
-  type ContractField,
   type InputRule,
   type ModelServerTool,
   type PricingConfig
 } from "@runapi.ai/mcp-core";
 import { readContract, readPricing } from "./data.js";
 import { META } from "./meta.js";
-
-const RESERVED_FIELDS = new Set(["model", "rules"]);
 
 function lineService(contract: Contract): string {
   return Object.keys(contract.actions)[0]?.split("/")[0] ?? META.lineSlug;
@@ -43,36 +40,8 @@ function lineModels(contract: Contract): string[] {
   return [...seen];
 }
 
-// No-model endpoints (models: []) carry their fields under the "_" roster.
-function rostersForAction(action: ContractAction): string[] {
-  return action.models.length > 0 ? action.models : ["_"];
-}
-
-function fieldsForAction(action: ContractAction): Record<string, ContractField> {
-  const fields: Record<string, ContractField> = {};
-  for (const model of rostersForAction(action)) {
-    const roster = action.fields_by_model[model] ?? {};
-    for (const [name, field] of Object.entries(roster)) {
-      if (RESERVED_FIELDS.has(name)) {
-        continue;
-      }
-      if (!(name in fields)) {
-        fields[name] = field as ContractField;
-      }
-    }
-  }
-  return fields;
-}
-
 function rulesForAction(action: ContractAction): InputRule[] {
-  for (const model of rostersForAction(action)) {
-    const roster = action.fields_by_model[model] ?? {};
-    const rules = (roster as Record<string, unknown>).rules;
-    if (Array.isArray(rules) && rules.length > 0) {
-      return rules as InputRule[];
-    }
-  }
-  return [];
+  return action.rules ?? [];
 }
 
 function buildTools(contract: Contract): { tools: ModelServerTool[]; inputRules: Record<string, InputRule[]> } {
@@ -87,8 +56,7 @@ function buildTools(contract: Contract): { tools: ModelServerTool[]; inputRules:
       description: `Create a ${action.model} task on RunAPI (${endpoint.replace(/_/g, " ")}). Returns a task id, status, and output URLs.`,
       service,
       action: endpoint,
-      models: action.models,
-      inputSchema: fieldsForAction(action)
+      models: action.models
     });
     inputRules[endpoint] = rulesForAction(action);
   }

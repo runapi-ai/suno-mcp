@@ -1,7 +1,7 @@
 {
   "name": "@runapi.ai/suno-mcp",
-  "version": "0.1.2",
-  "description": "RunAPI MCP server for one model line: create tasks, poll status, and check pricing with one API key.",
+  "version": "0.1.3",
+  "description": "Suno MCP server for RunAPI — create Suno AI tasks (cover audio, create mashup, extend music), poll status, and check pricing across 6 models with one API key.",
   "type": "module",
   "main": "dist/src/index.js",
   "bin": {
@@ -27,7 +27,21 @@
     "runapi",
     "mcp",
     "model-context-protocol",
-    "ai"
+    "ai",
+    "suno",
+    "suno-mcp",
+    "suno-ai",
+    "suno-api",
+    "music-generation",
+    "ai-music",
+    "audio-generation",
+    "ai-audio",
+    "cover-audio",
+    "create-mashup",
+    "extend-music",
+    "generate-lyrics",
+    "text-to-music",
+    "text-to-sound"
   ],
   "author": "RunAPI",
   "license": "Apache-2.0",
@@ -44,7 +58,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "@runapi.ai/mcp-core": "0.1.1",
+    "@runapi.ai/mcp-core": "0.1.2",
     "zod": "^3.25.76"
   },
   "devDependencies": {
