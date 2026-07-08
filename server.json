@@ -6,19 +6,19 @@
     "url": "https://github.com/runapi-ai/suno-mcp",
     "source": "github"
   },
-  "version": "0.1.7",
+  "version": "0.1.8",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "@runapi.ai/suno-mcp",
-      "version": "0.1.7",
+      "version": "0.1.8",
       "transport": {
         "type": "stdio"
       },
       "environmentVariables": [
         {
-          "description": "RunAPI API key. Create one at https://runapi.ai",
-          "isRequired": true,
+          "description": "Optional RunAPI API key for headless hosts. Interactive MCP hosts can use the login tool, which writes shared RunAPI config.",
+          "isRequired": false,
           "format": "string",
           "isSecret": true,
           "name": "RUNAPI_API_KEY"

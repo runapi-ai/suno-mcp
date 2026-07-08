@@ -57,14 +57,14 @@ Codex, Cursor, Windsurf, VS Code, Roo Code, and other MCP hosts can use the same
   "mcpServers": {
     "suno": {
       "command": "npx",
-      "args": ["-y", "@runapi.ai/suno-mcp"],
-      "env": { "RUNAPI_API_KEY": "${RUNAPI_API_KEY}" }
+      "args": ["-y", "@runapi.ai/suno-mcp"]
     }
   }
 }
 ```
 
-Create an API key at [runapi.ai](https://runapi.ai) and expose it as `RUNAPI_API_KEY`. `check_pricing` can run without a key; task creation and status polling require one.
+`check_pricing` works before sign-in. For task creation and status polling, ask your assistant to call the `login` tool. It opens a browser login and saves credentials to `~/.config/runapi/config.json`, the same file used by `runapi login`.
+Headless and CI hosts can still set `RUNAPI_API_KEY` before starting the MCP host.
 
 Ready-made examples are in [`examples/`](examples/) for Claude, Cursor, Windsurf, VS Code, and Roo Code.
 
@@ -134,12 +134,13 @@ The assistant calls `check_pricing` and can link to the [Suno model page](https:
 
 ## Configuration
 
-The server reads the API key in this order:
+The server resolves auth in this order:
 
-1. `RUNAPI_API_KEY` environment variable
-2. `~/.config/runapi/config.json`
+1. `RUNAPI_API_KEY` environment variable, useful for headless and CI hosts
+2. `~/.config/runapi/config.json`, created by the MCP `login` tool or `runapi login`
+3. No key, which still allows `check_pricing`
 
-Example config file:
+The config file is normally managed by login. A pre-provisioned headless config can use:
 
 ```json
 {
@@ -147,7 +148,7 @@ Example config file:
 }
 ```
 
-Do not commit real API keys. Get one at [runapi.ai](https://runapi.ai).
+Do not commit real API keys.
 
 ---
 

@@ -6,10 +6,7 @@
       "args": [
         "-y",
         "@runapi.ai/suno-mcp"
-      ],
-      "env": {
-        "RUNAPI_API_KEY": "${RUNAPI_API_KEY}"
-      }
+      ]
     }
   }
 }
