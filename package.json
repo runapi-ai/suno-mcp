@@ -1,6 +1,6 @@
 {
   "name": "@runapi.ai/suno-mcp",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "RunAPI Suno MCP server for multimodal generation: create tasks, poll results, and check pricing across 6 model variants from Claude Code, Codex, Cursor, and VS Code.",
   "type": "module",
   "main": "dist/src/index.js",
@@ -60,7 +60,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "@runapi.ai/mcp-core": "0.1.3",
+    "@runapi.ai/mcp-core": "0.1.4",
     "zod": "^3.25.76"
   },
   "devDependencies": {
