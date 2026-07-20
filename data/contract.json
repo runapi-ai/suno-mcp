@@ -11,6 +11,7 @@
     "suno/cover-audio": {
       "model": "Suno",
       "endpoint": "cover_audio",
+      "task_type": "asynchronous",
       "models": [
         "suno-v4",
         "suno-v4.5",
@@ -534,6 +535,7 @@
     "suno/create-mashup": {
       "model": "Suno",
       "endpoint": "create_mashup",
+      "task_type": "asynchronous",
       "models": [
         "suno-v4",
         "suno-v4.5",
@@ -617,6 +619,8 @@
           "upload_url_list": {
             "type": "array",
             "required": true,
+            "max_items": 2,
+            "min_items": 2,
             "description": "Two audio URLs to mashup."
           },
           "vocal_mode": {
@@ -691,6 +695,8 @@
           "upload_url_list": {
             "type": "array",
             "required": true,
+            "max_items": 2,
+            "min_items": 2,
             "description": "Two audio URLs to mashup."
           },
           "vocal_mode": {
@@ -765,6 +771,8 @@
           "upload_url_list": {
             "type": "array",
             "required": true,
+            "max_items": 2,
+            "min_items": 2,
             "description": "Two audio URLs to mashup."
           },
           "vocal_mode": {
@@ -839,6 +847,8 @@
           "upload_url_list": {
             "type": "array",
             "required": true,
+            "max_items": 2,
+            "min_items": 2,
             "description": "Two audio URLs to mashup."
           },
           "vocal_mode": {
@@ -913,6 +923,8 @@
           "upload_url_list": {
             "type": "array",
             "required": true,
+            "max_items": 2,
+            "min_items": 2,
             "description": "Two audio URLs to mashup."
           },
           "vocal_mode": {
@@ -987,6 +999,8 @@
           "upload_url_list": {
             "type": "array",
             "required": true,
+            "max_items": 2,
+            "min_items": 2,
             "description": "Two audio URLs to mashup."
           },
           "vocal_mode": {
@@ -1033,6 +1047,7 @@
     "suno/extend-music": {
       "model": "Suno",
       "endpoint": "extend_music",
+      "task_type": "asynchronous",
       "models": [
         "suno-v4",
         "suno-v4.5",
@@ -1617,6 +1632,7 @@
     "suno/generate-lyrics": {
       "model": "Suno",
       "endpoint": "generate_lyrics",
+      "task_type": "asynchronous",
       "models": [],
       "fields_by_model": {
         "_": {
@@ -1631,9 +1647,158 @@
         }
       }
     },
+    "suno/separate-audio-stems": {
+      "model": "Suno",
+      "endpoint": "separate_audio_stems",
+      "task_type": "asynchronous",
+      "models": [],
+      "rules": [
+        {
+          "when": {
+            "type": "split_stem_advanced"
+          },
+          "required": [
+            "stem_name"
+          ]
+        }
+      ],
+      "fields_by_model": {
+        "_": {
+          "task_id": {
+            "type": "string",
+            "required": true,
+            "description": "Source task ID."
+          },
+          "audio_id": {
+            "type": "string",
+            "required": true,
+            "description": "Audio ID within the source task."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "separate_vocal",
+              "split_stem",
+              "split_stem_advanced"
+            ],
+            "default": "separate_vocal",
+            "description": "Stem separation mode."
+          },
+          "stem_name": {
+            "type": "string",
+            "enum": [
+              "Lead Vocal",
+              "Drum Kit",
+              "Kick",
+              "Snare",
+              "Risers",
+              "Bass",
+              "Backing Vocals",
+              "Piano",
+              "Electric Guitar",
+              "Percussion",
+              "String Section",
+              "Synth",
+              "Acoustic Guitar",
+              "Sound Effects",
+              "Synth Pad",
+              "Synth Bass",
+              "Guitar",
+              "Brass Section",
+              "Organ",
+              "Electronic Drum Kit",
+              "Lead Electric Guitar",
+              "Synth Keys",
+              "Rhythm Electric Guitar",
+              "Electric Piano",
+              "Upright Bass",
+              "Keyboards",
+              "Distorted Electric Guitar",
+              "Synth Strings",
+              "Synth Lead",
+              "Woodwinds",
+              "Rhythm Acoustic Guitar",
+              "Flute",
+              "Harp",
+              "Tambourine",
+              "Trumpet",
+              "Arpeggiator",
+              "Accordion",
+              "Fiddle",
+              "Pedal Steel Guitar",
+              "Synth Voice",
+              "Violin",
+              "Digital Piano",
+              "Synth Brass",
+              "Mandolin",
+              "Choir",
+              "Banjo",
+              "Bells",
+              "Clarinet",
+              "Tenor Saxophone",
+              "Trombone",
+              "Shaker",
+              "French Horn",
+              "Glockenspiel",
+              "Electric Bass",
+              "Cello",
+              "Timpani",
+              "Harmonica",
+              "Marimba",
+              "Vibraphone",
+              "Lap Steel Guitar",
+              "Saxophone",
+              "Orchestra",
+              "Horns",
+              "Cymbals",
+              "Hand Clap",
+              "Oboe",
+              "Celesta",
+              "Congas",
+              "Drone",
+              "Alto Saxophone",
+              "Double Bass",
+              "Ukulele",
+              "Harpsichord",
+              "Baritone Saxophone",
+              "Xylophone",
+              "Tuba",
+              "Bass Guitar",
+              "Whistle",
+              "Lead Guitar",
+              "Rhodes",
+              "808",
+              "Bongos",
+              "Bassoon",
+              "Cowbell",
+              "Viola",
+              "Sitar",
+              "Steel Drums",
+              "Piccolo",
+              "Theremin",
+              "Bagpipes",
+              "Hi-Hat",
+              "Music Box",
+              "Melodica",
+              "Tabla",
+              "Koto",
+              "Djembe",
+              "Taiko",
+              "Didgeridoo"
+            ],
+            "description": "Target stem for advanced separation. Required when type is split_stem_advanced."
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "Webhook URL for async notifications."
+          }
+        }
+      }
+    },
     "suno/text-to-music": {
       "model": "Suno",
       "endpoint": "text_to_music",
+      "task_type": "asynchronous",
       "models": [
         "suno-v4",
         "suno-v4.5",
@@ -2193,6 +2358,7 @@
     "suno/text-to-sound": {
       "model": "Suno",
       "endpoint": "text_to_sound",
+      "task_type": "asynchronous",
       "models": [
         "suno-v5",
         "suno-v5.5"

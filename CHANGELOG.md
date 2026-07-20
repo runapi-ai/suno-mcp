@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.1.10](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.1.10) - 2026-07-20
+
+### Added
+- Add advanced stem separation parameters, validation, and response metadata to the Suno MCP server.
+
+### Fixed
+- Enforce the two-item upload URL requirement for Create Mashup tools.
+
+
 ## [v0.1.9](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.1.9) - 2026-07-08
 
 ### Fixed

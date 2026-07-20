@@ -80,6 +80,15 @@
     },
     "_/generate_lyrics": {
       "unit_price_cents": 1
+    },
+    "_/separate_audio_stems": {
+      "unit_price_cents": 10,
+      "billing_config": {
+        "key": "type",
+        "overrides": {
+          "split_stem": 50
+        }
+      }
     }
   }
 }
