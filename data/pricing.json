@@ -78,6 +78,9 @@
     "suno-v5.5/text_to_sound": {
       "unit_price_cents": 3
     },
+    "_/blend_lyrics": {
+      "unit_price_cents": 1
+    },
     "_/generate_lyrics": {
       "unit_price_cents": 1
     },

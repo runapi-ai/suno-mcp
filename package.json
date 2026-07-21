@@ -1,6 +1,6 @@
 {
   "name": "@runapi.ai/suno-mcp",
-  "version": "0.1.10",
+  "version": "0.2.0",
   "description": "RunAPI Suno MCP server for multimodal generation: create tasks, poll results, and check pricing across 6 model variants from Claude Code, Codex, Cursor, and VS Code.",
   "type": "module",
   "main": "dist/src/index.js",
@@ -40,10 +40,10 @@
     "ai-music",
     "audio-generation",
     "ai-audio",
+    "blend-lyrics",
     "cover-audio",
     "create-mashup",
-    "extend-music",
-    "generate-lyrics"
+    "extend-music"
   ],
   "author": "RunAPI",
   "license": "Apache-2.0",

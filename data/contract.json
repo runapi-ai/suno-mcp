@@ -8,6 +8,30 @@
     "suno-v5.5"
   ],
   "actions": {
+    "suno/blend-lyrics": {
+      "model": "Suno",
+      "endpoint": "blend_lyrics",
+      "task_type": "asynchronous",
+      "models": [],
+      "fields_by_model": {
+        "_": {
+          "lyrics_a": {
+            "type": "string",
+            "required": true,
+            "description": "First lyrics text to blend."
+          },
+          "lyrics_b": {
+            "type": "string",
+            "required": true,
+            "description": "Second lyrics text to blend."
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "Webhook URL for async notifications."
+          }
+        }
+      }
+    },
     "suno/cover-audio": {
       "model": "Suno",
       "endpoint": "cover_audio",
@@ -1638,6 +1662,7 @@
         "_": {
           "prompt": {
             "type": "string",
+            "required": true,
             "description": "Lyrics generation prompt."
           },
           "callback_url": {

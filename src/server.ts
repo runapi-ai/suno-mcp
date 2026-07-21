@@ -71,7 +71,7 @@ function buildTools(contract: Contract): { tools: ModelServerTool[]; inputRules:
     const endpoint = action.endpoint;
     tools.push({
       name: endpoint,
-      description: `Create a ${action.model} task on RunAPI (${endpoint.replace(/_/g, " ")}). Returns a task id, status, and output URLs.`,
+      description: `Create a ${action.model} task on RunAPI (${endpoint.replace(/_/g, " ")}). Returns a task id, status, and ${["blend_lyrics","generate_lyrics"].includes(endpoint) ? "result payload" : "output URLs"}.`,
       service,
       action: endpoint,
       models: action.models

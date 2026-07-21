@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.2.0](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.0) - 2026-07-21
+
+### Added
+- Add lyrics generation query and lyric blending tools with contract validation and pricing lookup.
+
+
 ## [v0.1.10](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.1.10) - 2026-07-20
 
 ### Added

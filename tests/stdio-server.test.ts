@@ -45,7 +45,7 @@ describe("suno stdio MCP server", () => {
 
     const tools = await client.listTools();
     const names = tools.tools.map((tool) => tool.name).sort();
-    expect(names).toEqual(["check_pricing","cover_audio","create_mashup","extend_music","generate_lyrics","get_task","login","separate_audio_stems","text_to_music","text_to_sound"]);
+    expect(names).toEqual(["blend_lyrics","check_pricing","cover_audio","create_mashup","extend_music","generate_lyrics","get_task","login","separate_audio_stems","text_to_music","text_to_sound"]);
 
     for (const endpoint of []) {
       const tool = tools.tools.find((candidate) => candidate.name === endpoint);
