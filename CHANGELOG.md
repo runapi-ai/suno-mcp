@@ -1,5 +1,12 @@
 # Changelog
 
+## [v0.2.1](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.1) - 2026-07-22
+
+### Changed
+- Refresh the generated pricing snapshot after the reviewed Suno generation pricing change.
+- Refresh embedded pricing data for basic and full stem separation tools.
+
+
 ## [v0.2.0](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.0) - 2026-07-21
 
 ### Added

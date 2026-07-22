@@ -30,6 +30,8 @@ function taskType(action: ContractAction): "synchronous" | "asynchronous" {
   return (action as RuntimeContractAction).task_type ?? "asynchronous";
 }
 
+
+
 function lineService(contract: Contract): string {
   return Object.keys(contract.actions)[0]?.split("/")[0] ?? META.lineSlug;
 }

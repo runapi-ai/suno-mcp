@@ -10,7 +10,7 @@
       "unit_price_cents": 12
     },
     "suno-v4/text_to_music": {
-      "unit_price_cents": 12
+      "unit_price_cents": 22
     },
     "suno-v4.5/cover_audio": {
       "unit_price_cents": 12
@@ -22,7 +22,7 @@
       "unit_price_cents": 12
     },
     "suno-v4.5/text_to_music": {
-      "unit_price_cents": 12
+      "unit_price_cents": 22
     },
     "suno-v4.5-all/cover_audio": {
       "unit_price_cents": 12
@@ -46,7 +46,7 @@
       "unit_price_cents": 12
     },
     "suno-v4.5-plus/text_to_music": {
-      "unit_price_cents": 12
+      "unit_price_cents": 22
     },
     "suno-v5/cover_audio": {
       "unit_price_cents": 12
@@ -58,7 +58,7 @@
       "unit_price_cents": 12
     },
     "suno-v5/text_to_music": {
-      "unit_price_cents": 12
+      "unit_price_cents": 22
     },
     "suno-v5/text_to_sound": {
       "unit_price_cents": 3
@@ -73,7 +73,7 @@
       "unit_price_cents": 12
     },
     "suno-v5.5/text_to_music": {
-      "unit_price_cents": 12
+      "unit_price_cents": 22
     },
     "suno-v5.5/text_to_sound": {
       "unit_price_cents": 3
@@ -85,11 +85,12 @@
       "unit_price_cents": 1
     },
     "_/separate_audio_stems": {
-      "unit_price_cents": 10,
+      "unit_price_cents": 16,
       "billing_config": {
         "key": "type",
         "overrides": {
-          "split_stem": 50
+          "split_stem": 62.5,
+          "split_stem_advanced": 10
         }
       }
     }
