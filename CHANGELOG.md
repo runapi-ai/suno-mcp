@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.2.2](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.2) - 2026-07-23
+
+### Changed
+- Refresh the generated pricing snapshot with the reviewed Suno generation prices.
+
+
 ## [v0.2.1](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.1) - 2026-07-22
 
 ### Changed

@@ -1953,9 +1953,6 @@
           "continue_at": {
             "type": "number",
             "description": "Timestamp in seconds to continue from."
-          },
-          "endpoint": {
-            "type": "string"
           }
         },
         "suno-v4.5": {
@@ -2037,9 +2034,6 @@
           "continue_at": {
             "type": "number",
             "description": "Timestamp in seconds to continue from."
-          },
-          "endpoint": {
-            "type": "string"
           }
         },
         "suno-v4.5-all": {
@@ -2121,9 +2115,6 @@
           "continue_at": {
             "type": "number",
             "description": "Timestamp in seconds to continue from."
-          },
-          "endpoint": {
-            "type": "string"
           }
         },
         "suno-v4.5-plus": {
@@ -2205,9 +2196,6 @@
           "continue_at": {
             "type": "number",
             "description": "Timestamp in seconds to continue from."
-          },
-          "endpoint": {
-            "type": "string"
           }
         },
         "suno-v5": {
@@ -2289,9 +2277,6 @@
           "continue_at": {
             "type": "number",
             "description": "Timestamp in seconds to continue from."
-          },
-          "endpoint": {
-            "type": "string"
           }
         },
         "suno-v5.5": {
@@ -2373,9 +2358,6 @@
           "continue_at": {
             "type": "number",
             "description": "Timestamp in seconds to continue from."
-          },
-          "endpoint": {
-            "type": "string"
           }
         }
       }
