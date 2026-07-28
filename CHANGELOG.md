@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.2.3](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.3) - 2026-07-28
+
+### Fixed
+- Keep generated Suno MCP server files synchronized with the current release artifact.
+
+
 ## [v0.2.2](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.2) - 2026-07-23
 
 ### Changed

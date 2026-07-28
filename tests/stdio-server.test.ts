@@ -82,7 +82,5 @@ describe("suno stdio MCP server", () => {
       const parsed = JSON.parse(spreadContent.text) as { endpoints?: { action: string }[] };
       expect(parsed.endpoints?.map((entry) => entry.action).sort(), `check_pricing should price ${model} on every endpoint`).toEqual([...actions].sort());
     }
-
-
   });
 });
