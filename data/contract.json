@@ -1133,6 +1133,7 @@
               "source",
               "custom"
             ],
+            "required": true,
             "description": "Inherit the source track's parameters (source) or supply custom ones (custom)."
           },
           "instrumental": {
@@ -1228,6 +1229,7 @@
               "source",
               "custom"
             ],
+            "required": true,
             "description": "Inherit the source track's parameters (source) or supply custom ones (custom)."
           },
           "instrumental": {
@@ -1323,6 +1325,7 @@
               "source",
               "custom"
             ],
+            "required": true,
             "description": "Inherit the source track's parameters (source) or supply custom ones (custom)."
           },
           "instrumental": {
@@ -1418,6 +1421,7 @@
               "source",
               "custom"
             ],
+            "required": true,
             "description": "Inherit the source track's parameters (source) or supply custom ones (custom)."
           },
           "instrumental": {
@@ -1513,6 +1517,7 @@
               "source",
               "custom"
             ],
+            "required": true,
             "description": "Inherit the source track's parameters (source) or supply custom ones (custom)."
           },
           "instrumental": {
@@ -1608,6 +1613,7 @@
               "source",
               "custom"
             ],
+            "required": true,
             "description": "Inherit the source track's parameters (source) or supply custom ones (custom)."
           },
           "instrumental": {

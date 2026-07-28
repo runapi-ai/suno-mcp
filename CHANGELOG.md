@@ -1,5 +1,12 @@
 # Changelog
 
+## [v0.2.4](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.4) - 2026-07-28
+
+### Fixed
+- Validate the required parameter mode before sending extend music requests.
+- Correct generated pricing metadata so Suno tools use the current published price schedules.
+
+
 ## [v0.2.3](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.3) - 2026-07-28
 
 ### Fixed
