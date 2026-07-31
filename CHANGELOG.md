@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.2.5](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.5) - 2026-07-31
+
+### Changed
+- Resolve MCP prices from the RunAPI Price Schedule API instead of embedded package data.
+
+
 ## [v0.2.4](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.4) - 2026-07-28
 
 ### Fixed

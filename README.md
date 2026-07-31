@@ -74,16 +74,16 @@ Ready-made examples are in [`examples/`](examples/) for Claude, Cursor, Windsurf
 
 | Tool | Auth | Purpose |
 |---|---|---|
-| `blend_lyrics` | Yes | Create a Suno blend lyrics task and optionally wait for a terminal status. Returns the task id, status, result payload, and pricing snapshot. |
-| `cover_audio` | Yes | Create a Suno cover audio task and optionally wait for a terminal status. Returns the task id, status, output URLs, and pricing snapshot. |
-| `create_mashup` | Yes | Create a Suno create mashup task and optionally wait for a terminal status. Returns the task id, status, output URLs, and pricing snapshot. |
-| `extend_music` | Yes | Create a Suno extend music task and optionally wait for a terminal status. Returns the task id, status, output URLs, and pricing snapshot. |
-| `generate_lyrics` | Yes | Create a Suno generate lyrics task and optionally wait for a terminal status. Returns the task id, status, result payload, and pricing snapshot. |
-| `separate_audio_stems` | Yes | Create a Suno separate audio stems task and optionally wait for a terminal status. Returns the task id, status, output URLs, and pricing snapshot. |
-| `text_to_music` | Yes | Create a Suno text to music task and optionally wait for a terminal status. Returns the task id, status, output URLs, and pricing snapshot. |
-| `text_to_sound` | Yes | Create a Suno text to sound task and optionally wait for a terminal status. Returns the task id, status, output URLs, and pricing snapshot. |
+| `blend_lyrics` | Yes | Create a Suno blend lyrics task and optionally wait for a terminal status. Returns the task id, status, and result payload. |
+| `cover_audio` | Yes | Create a Suno cover audio task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
+| `create_mashup` | Yes | Create a Suno create mashup task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
+| `extend_music` | Yes | Create a Suno extend music task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
+| `generate_lyrics` | Yes | Create a Suno generate lyrics task and optionally wait for a terminal status. Returns the task id, status, and result payload. |
+| `separate_audio_stems` | Yes | Create a Suno separate audio stems task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
+| `text_to_music` | Yes | Create a Suno text to music task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
+| `text_to_sound` | Yes | Create a Suno text to sound task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
 | `get_task` | Yes | Fetch the current status and latest payload for an existing task. |
-| `check_pricing` | No | Look up the current pricing snapshot for a Suno model and endpoint. |
+| `check_pricing` | No | Look up current pricing for a Suno model and endpoint. |
 
 ---
 
