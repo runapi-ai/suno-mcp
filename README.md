@@ -30,7 +30,7 @@
 ## Why This Package?
 
 `@runapi.ai/suno-mcp` is a focused Model Context Protocol server for the **Suno** model line on RunAPI.
-It gives MCP-compatible assistants direct access to 8 endpoints and 6 model variants without loading the full RunAPI catalog.
+It gives MCP-compatible assistants direct access to 11 endpoints and 6 model variants without loading the full RunAPI catalog.
 
 Use this per-model server when an agent should stay scoped to Suno. Use [`@runapi.ai/mcp`](https://github.com/runapi-ai/mcp) when one assistant should discover every RunAPI model line.
 
@@ -74,12 +74,15 @@ Ready-made examples are in [`examples/`](examples/) for Claude, Cursor, Windsurf
 
 | Tool | Auth | Purpose |
 |---|---|---|
+| `add_samples` | Yes | Create a Suno add samples task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
 | `blend_lyrics` | Yes | Create a Suno blend lyrics task and optionally wait for a terminal status. Returns the task id, status, and result payload. |
 | `cover_audio` | Yes | Create a Suno cover audio task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
 | `create_mashup` | Yes | Create a Suno create mashup task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
 | `extend_music` | Yes | Create a Suno extend music task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
 | `generate_lyrics` | Yes | Create a Suno generate lyrics task and optionally wait for a terminal status. Returns the task id, status, and result payload. |
+| `remaster_audio` | Yes | Create a Suno remaster audio task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
 | `separate_audio_stems` | Yes | Create a Suno separate audio stems task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
+| `stitch_audio` | Yes | Create a Suno stitch audio task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
 | `text_to_music` | Yes | Create a Suno text to music task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
 | `text_to_sound` | Yes | Create a Suno text to sound task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
 | `get_task` | Yes | Fetch the current status and latest payload for an existing task. |
@@ -89,16 +92,19 @@ Ready-made examples are in [`examples/`](examples/) for Claude, Cursor, Windsurf
 
 ## Models
 
-Suno covers 6 model variants across 8 endpoints. Each tool accepts the models listed for it:
+Suno covers 6 model variants across 11 endpoints. Each tool accepts the models listed for it:
 
 | Tool | Models |
 |---|---|
+| `add_samples` | `suno-v4`, `suno-v4.5`, `suno-v4.5-plus`, `suno-v5`, `suno-v5.5` |
 | `blend_lyrics` | _no model parameter_ |
 | `cover_audio` | `suno-v4`, `suno-v4.5`, `suno-v4.5-all`, `suno-v4.5-plus`, `suno-v5`, `suno-v5.5` |
 | `create_mashup` | `suno-v4`, `suno-v4.5`, `suno-v4.5-all`, `suno-v4.5-plus`, `suno-v5`, `suno-v5.5` |
 | `extend_music` | `suno-v4`, `suno-v4.5`, `suno-v4.5-all`, `suno-v4.5-plus`, `suno-v5`, `suno-v5.5` |
 | `generate_lyrics` | _no model parameter_ |
+| `remaster_audio` | `suno-v4`, `suno-v4.5`, `suno-v4.5-plus`, `suno-v5`, `suno-v5.5` |
 | `separate_audio_stems` | _no model parameter_ |
+| `stitch_audio` | `suno-v4`, `suno-v4.5`, `suno-v4.5-plus`, `suno-v5`, `suno-v5.5` |
 | `text_to_music` | `suno-v4`, `suno-v4.5`, `suno-v4.5-all`, `suno-v4.5-plus`, `suno-v5`, `suno-v5.5` |
 | `text_to_sound` | `suno-v5`, `suno-v5.5` |
 
@@ -108,15 +114,15 @@ Model availability can change between releases. Use `check_pricing` or the [Suno
 
 ## Agent Prompts
 
-Ask your assistant in natural language; it can inspect pricing, create the task, and return the task id plus result payload.
+Ask your assistant in natural language; it can inspect pricing, create the task, and return the task id plus output URLs.
 
 ### Create a task
 
 ```text
-Run a Suno blend lyrics task with RunAPI.
+Run a Suno add samples task with RunAPI.
 ```
 
-The assistant can call `check_pricing`, then `blend_lyrics`, and return the task id, status, and result payload.
+The assistant can call `check_pricing`, then `add_samples`, and return the task id, status, and output URLs.
 
 ### Submit without waiting
 

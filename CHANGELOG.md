@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.2.6](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.6) - 2026-08-06
+
+### Added
+- Expose tools for stitching audio, remastering audio, and adding samples from a selected time range.
+
+
 ## [v0.2.5](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.5) - 2026-07-31
 
 ### Changed
