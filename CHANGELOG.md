@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.2.7](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.7) - 2026-08-07
+
+### Fixed
+- Validate the 10 to 360 second duration range and reject duration or style controls that the selected model or vocal mode cannot honor.
+
+
 ## [v0.2.6](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.6) - 2026-08-06
 
 ### Added

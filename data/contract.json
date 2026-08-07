@@ -2241,7 +2241,10 @@
           "forbidden": [
             "lyrics",
             "style",
-            "title"
+            "title",
+            "negative_tags",
+            "vocal_gender",
+            "duration_seconds"
           ]
         },
         {
@@ -2267,7 +2270,48 @@
           ],
           "forbidden": [
             "prompt",
-            "lyrics"
+            "lyrics",
+            "vocal_gender"
+          ]
+        },
+        {
+          "when": {
+            "model": "suno-v4"
+          },
+          "forbidden": [
+            "duration_seconds"
+          ]
+        },
+        {
+          "when": {
+            "model": "suno-v4.5"
+          },
+          "forbidden": [
+            "duration_seconds"
+          ]
+        },
+        {
+          "when": {
+            "model": "suno-v4.5-all"
+          },
+          "forbidden": [
+            "duration_seconds"
+          ]
+        },
+        {
+          "when": {
+            "model": "suno-v4.5-plus"
+          },
+          "forbidden": [
+            "duration_seconds"
+          ]
+        },
+        {
+          "when": {
+            "model": "suno-v5"
+          },
+          "forbidden": [
+            "duration_seconds"
           ]
         }
       ],
@@ -2346,7 +2390,9 @@
           },
           "duration_seconds": {
             "type": "integer",
-            "description": "Duration in seconds."
+            "max": 360,
+            "min": 10,
+            "description": "Preferred duration in seconds; only available for Suno V5.5 custom requests."
           },
           "continue_at": {
             "type": "number",
@@ -2427,7 +2473,9 @@
           },
           "duration_seconds": {
             "type": "integer",
-            "description": "Duration in seconds."
+            "max": 360,
+            "min": 10,
+            "description": "Preferred duration in seconds; only available for Suno V5.5 custom requests."
           },
           "continue_at": {
             "type": "number",
@@ -2508,7 +2556,9 @@
           },
           "duration_seconds": {
             "type": "integer",
-            "description": "Duration in seconds."
+            "max": 360,
+            "min": 10,
+            "description": "Preferred duration in seconds; only available for Suno V5.5 custom requests."
           },
           "continue_at": {
             "type": "number",
@@ -2589,7 +2639,9 @@
           },
           "duration_seconds": {
             "type": "integer",
-            "description": "Duration in seconds."
+            "max": 360,
+            "min": 10,
+            "description": "Preferred duration in seconds; only available for Suno V5.5 custom requests."
           },
           "continue_at": {
             "type": "number",
@@ -2670,7 +2722,9 @@
           },
           "duration_seconds": {
             "type": "integer",
-            "description": "Duration in seconds."
+            "max": 360,
+            "min": 10,
+            "description": "Preferred duration in seconds; only available for Suno V5.5 custom requests."
           },
           "continue_at": {
             "type": "number",
@@ -2751,7 +2805,9 @@
           },
           "duration_seconds": {
             "type": "integer",
-            "description": "Duration in seconds."
+            "max": 360,
+            "min": 10,
+            "description": "Preferred duration in seconds; only available for Suno V5.5 custom requests."
           },
           "continue_at": {
             "type": "number",
