@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.3.0](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.3.0) - 2026-08-10
+
+### Added
+- Add a Suno music inspiration tool accepting one to four audio URLs.
+
+
 ## [v0.2.7](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.2.7) - 2026-08-07
 
 ### Fixed

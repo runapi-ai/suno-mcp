@@ -30,7 +30,7 @@
 ## Why This Package?
 
 `@runapi.ai/suno-mcp` is a focused Model Context Protocol server for the **Suno** model line on RunAPI.
-It gives MCP-compatible assistants direct access to 11 endpoints and 6 model variants without loading the full RunAPI catalog.
+It gives MCP-compatible assistants direct access to 12 endpoints and 6 model variants without loading the full RunAPI catalog.
 
 Use this per-model server when an agent should stay scoped to Suno. Use [`@runapi.ai/mcp`](https://github.com/runapi-ai/mcp) when one assistant should discover every RunAPI model line.
 
@@ -80,6 +80,7 @@ Ready-made examples are in [`examples/`](examples/) for Claude, Cursor, Windsurf
 | `create_mashup` | Yes | Create a Suno create mashup task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
 | `extend_music` | Yes | Create a Suno extend music task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
 | `generate_lyrics` | Yes | Create a Suno generate lyrics task and optionally wait for a terminal status. Returns the task id, status, and result payload. |
+| `inspire_music` | Yes | Create a Suno inspire music task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
 | `remaster_audio` | Yes | Create a Suno remaster audio task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
 | `separate_audio_stems` | Yes | Create a Suno separate audio stems task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
 | `stitch_audio` | Yes | Create a Suno stitch audio task and optionally wait for a terminal status. Returns the task id, status, and output URLs. |
@@ -92,7 +93,7 @@ Ready-made examples are in [`examples/`](examples/) for Claude, Cursor, Windsurf
 
 ## Models
 
-Suno covers 6 model variants across 11 endpoints. Each tool accepts the models listed for it:
+Suno covers 6 model variants across 12 endpoints. Each tool accepts the models listed for it:
 
 | Tool | Models |
 |---|---|
@@ -102,6 +103,7 @@ Suno covers 6 model variants across 11 endpoints. Each tool accepts the models l
 | `create_mashup` | `suno-v4`, `suno-v4.5`, `suno-v4.5-all`, `suno-v4.5-plus`, `suno-v5`, `suno-v5.5` |
 | `extend_music` | `suno-v4`, `suno-v4.5`, `suno-v4.5-all`, `suno-v4.5-plus`, `suno-v5`, `suno-v5.5` |
 | `generate_lyrics` | _no model parameter_ |
+| `inspire_music` | `suno-v4`, `suno-v4.5`, `suno-v4.5-plus`, `suno-v5`, `suno-v5.5` |
 | `remaster_audio` | `suno-v4`, `suno-v4.5`, `suno-v4.5-plus`, `suno-v5`, `suno-v5.5` |
 | `separate_audio_stems` | _no model parameter_ |
 | `stitch_audio` | `suno-v4`, `suno-v4.5`, `suno-v4.5-plus`, `suno-v5`, `suno-v5.5` |

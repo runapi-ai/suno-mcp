@@ -57,7 +57,7 @@ describe("suno stdio MCP server", () => {
 
     const tools = await client.listTools();
     const names = tools.tools.map((tool) => tool.name).sort();
-    expect(names).toEqual(["add_samples","blend_lyrics","check_pricing","cover_audio","create_mashup","extend_music","generate_lyrics","get_task","login","remaster_audio","separate_audio_stems","stitch_audio","text_to_music","text_to_sound"]);
+    expect(names).toEqual(["add_samples","blend_lyrics","check_pricing","cover_audio","create_mashup","extend_music","generate_lyrics","get_task","inspire_music","login","remaster_audio","separate_audio_stems","stitch_audio","text_to_music","text_to_sound"]);
 
     for (const endpoint of []) {
       const tool = tools.tools.find((candidate) => candidate.name === endpoint);
@@ -84,7 +84,7 @@ describe("suno stdio MCP server", () => {
 
     // A model offered on several endpoints must report every endpoint's price
     // without naming one, not silently price only the first endpoint found.
-    const multiEndpointModels: Record<string, string[]> = {"suno-v4":["add_samples","cover_audio","create_mashup","extend_music","remaster_audio","stitch_audio","text_to_music"],"suno-v4.5":["add_samples","cover_audio","create_mashup","extend_music","remaster_audio","stitch_audio","text_to_music"],"suno-v4.5-plus":["add_samples","cover_audio","create_mashup","extend_music","remaster_audio","stitch_audio","text_to_music"],"suno-v5":["add_samples","cover_audio","create_mashup","extend_music","remaster_audio","stitch_audio","text_to_music","text_to_sound"],"suno-v5.5":["add_samples","cover_audio","create_mashup","extend_music","remaster_audio","stitch_audio","text_to_music","text_to_sound"],"suno-v4.5-all":["cover_audio","create_mashup","extend_music","text_to_music"]};
+    const multiEndpointModels: Record<string, string[]> = {"suno-v4":["add_samples","cover_audio","create_mashup","extend_music","inspire_music","remaster_audio","stitch_audio","text_to_music"],"suno-v4.5":["add_samples","cover_audio","create_mashup","extend_music","inspire_music","remaster_audio","stitch_audio","text_to_music"],"suno-v4.5-plus":["add_samples","cover_audio","create_mashup","extend_music","inspire_music","remaster_audio","stitch_audio","text_to_music"],"suno-v5":["add_samples","cover_audio","create_mashup","extend_music","inspire_music","remaster_audio","stitch_audio","text_to_music","text_to_sound"],"suno-v5.5":["add_samples","cover_audio","create_mashup","extend_music","inspire_music","remaster_audio","stitch_audio","text_to_music","text_to_sound"],"suno-v4.5-all":["cover_audio","create_mashup","extend_music","text_to_music"]};
     for (const [model, actions] of Object.entries(multiEndpointModels)) {
       const spread = await client.callTool({ name: "check_pricing", arguments: { model } });
       const spreadContent = spread.content?.[0];
