@@ -59,6 +59,9 @@ describe("suno stdio MCP server", () => {
     const names = tools.tools.map((tool) => tool.name).sort();
     expect(names).toEqual(["add_samples","blend_lyrics","check_pricing","cover_audio","create_mashup","extend_music","generate_lyrics","get_task","inspire_music","login","remaster_audio","separate_audio_stems","stitch_audio","text_to_music","text_to_sound"]);
 
+    const textToMusic = tools.tools.find((tool) => tool.name === "text_to_music");
+    expect(textToMusic?.inputSchema.properties?.prompt).toMatchObject({"type":"string","maxLength":3000});
+
     for (const endpoint of []) {
       const tool = tools.tools.find((candidate) => candidate.name === endpoint);
       expect(tool?.inputSchema.properties, `${endpoint} is synchronous and must not expose polling controls`).not.toHaveProperty("wait");

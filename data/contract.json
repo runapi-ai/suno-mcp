@@ -2477,6 +2477,8 @@
           },
           "prompt": {
             "type": "string",
+            "max": 3000,
+            "length": true,
             "description": "Song brief for automatic lyrics."
           },
           "lyrics": {
@@ -2560,6 +2562,8 @@
           },
           "prompt": {
             "type": "string",
+            "max": 3000,
+            "length": true,
             "description": "Song brief for automatic lyrics."
           },
           "lyrics": {
@@ -2643,6 +2647,8 @@
           },
           "prompt": {
             "type": "string",
+            "max": 3000,
+            "length": true,
             "description": "Song brief for automatic lyrics."
           },
           "lyrics": {
@@ -2726,6 +2732,8 @@
           },
           "prompt": {
             "type": "string",
+            "max": 3000,
+            "length": true,
             "description": "Song brief for automatic lyrics."
           },
           "lyrics": {
@@ -2809,6 +2817,8 @@
           },
           "prompt": {
             "type": "string",
+            "max": 3000,
+            "length": true,
             "description": "Song brief for automatic lyrics."
           },
           "lyrics": {
@@ -2892,6 +2902,8 @@
           },
           "prompt": {
             "type": "string",
+            "max": 3000,
+            "length": true,
             "description": "Song brief for automatic lyrics."
           },
           "lyrics": {
