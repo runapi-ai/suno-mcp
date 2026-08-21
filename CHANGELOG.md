@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.3.2](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.3.2) - 2026-08-21
+
+### Fixed
+- Reject Suno text-to-music auto_lyrics prompts longer than 3000 characters before creating a task.
+
+
 ## [v0.3.1](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.3.1) - 2026-08-17
 
 ### Fixed
