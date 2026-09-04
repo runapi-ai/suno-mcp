@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.3.3](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.3.3) - 2026-09-04
+
+### Changed
+- Add length limits for prompt, lyrics, style, title and range limits for style_weight, weirdness_constraint, audio_weight across Suno endpoints.
+
+
 ## [v0.3.2](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.3.2) - 2026-08-21
 
 ### Fixed

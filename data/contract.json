@@ -260,14 +260,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "upload_url": {
@@ -287,18 +293,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Cover brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact cover lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "persona_id": {
@@ -338,14 +352,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "upload_url": {
@@ -365,18 +385,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Cover brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact cover lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "persona_id": {
@@ -416,14 +444,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "upload_url": {
@@ -443,18 +477,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Cover brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact cover lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "persona_id": {
@@ -494,14 +536,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "upload_url": {
@@ -521,18 +569,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Cover brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact cover lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "persona_id": {
@@ -572,14 +628,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "upload_url": {
@@ -599,18 +661,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Cover brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact cover lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "persona_id": {
@@ -650,14 +720,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "upload_url": {
@@ -677,18 +753,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Cover brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact cover lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "persona_id": {
@@ -784,14 +868,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "upload_url_list": {
@@ -813,18 +903,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Mashup brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact mashup lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "persona_id": {
@@ -860,14 +958,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "upload_url_list": {
@@ -889,18 +993,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Mashup brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact mashup lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "persona_id": {
@@ -936,14 +1048,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "upload_url_list": {
@@ -965,18 +1083,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Mashup brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact mashup lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "persona_id": {
@@ -1012,14 +1138,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "upload_url_list": {
@@ -1041,18 +1173,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Mashup brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact mashup lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "persona_id": {
@@ -1088,14 +1228,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "upload_url_list": {
@@ -1117,18 +1263,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Mashup brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact mashup lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "persona_id": {
@@ -1164,14 +1318,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "upload_url_list": {
@@ -1193,18 +1353,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Mashup brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact mashup lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "persona_id": {
@@ -1255,14 +1423,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "task_id": {
@@ -1296,18 +1470,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Extension brief. Cannot be combined with lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact lyrics. Only allowed when extending uploaded audio in custom parameter mode."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Style preset. Required in custom parameter mode."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Song title. Required in custom parameter mode."
           },
           "continue_at": {
@@ -1351,14 +1533,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "task_id": {
@@ -1392,18 +1580,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Extension brief. Cannot be combined with lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact lyrics. Only allowed when extending uploaded audio in custom parameter mode."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Style preset. Required in custom parameter mode."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Song title. Required in custom parameter mode."
           },
           "continue_at": {
@@ -1447,14 +1643,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "task_id": {
@@ -1488,18 +1690,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Extension brief. Cannot be combined with lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact lyrics. Only allowed when extending uploaded audio in custom parameter mode."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Style preset. Required in custom parameter mode."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Song title. Required in custom parameter mode."
           },
           "continue_at": {
@@ -1543,14 +1753,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "task_id": {
@@ -1584,18 +1800,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Extension brief. Cannot be combined with lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact lyrics. Only allowed when extending uploaded audio in custom parameter mode."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Style preset. Required in custom parameter mode."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Song title. Required in custom parameter mode."
           },
           "continue_at": {
@@ -1639,14 +1863,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "task_id": {
@@ -1680,18 +1910,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Extension brief. Cannot be combined with lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact lyrics. Only allowed when extending uploaded audio in custom parameter mode."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Style preset. Required in custom parameter mode."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Song title. Required in custom parameter mode."
           },
           "continue_at": {
@@ -1735,14 +1973,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "task_id": {
@@ -1776,18 +2020,26 @@
           },
           "prompt": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Extension brief. Cannot be combined with lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact lyrics. Only allowed when extending uploaded audio in custom parameter mode."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Style preset. Required in custom parameter mode."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Song title. Required in custom parameter mode."
           },
           "continue_at": {
@@ -2455,14 +2707,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "vocal_mode": {
@@ -2477,20 +2735,26 @@
           },
           "prompt": {
             "type": "string",
-            "max": 3000,
+            "max": 5000,
             "length": true,
             "description": "Song brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "negative_tags": {
@@ -2540,14 +2804,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "vocal_mode": {
@@ -2562,20 +2832,26 @@
           },
           "prompt": {
             "type": "string",
-            "max": 3000,
+            "max": 5000,
             "length": true,
             "description": "Song brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "negative_tags": {
@@ -2625,14 +2901,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "vocal_mode": {
@@ -2647,20 +2929,26 @@
           },
           "prompt": {
             "type": "string",
-            "max": 3000,
+            "max": 5000,
             "length": true,
             "description": "Song brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "negative_tags": {
@@ -2710,14 +2998,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "vocal_mode": {
@@ -2732,20 +3026,26 @@
           },
           "prompt": {
             "type": "string",
-            "max": 3000,
+            "max": 5000,
             "length": true,
             "description": "Song brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "negative_tags": {
@@ -2795,14 +3095,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "vocal_mode": {
@@ -2817,20 +3123,26 @@
           },
           "prompt": {
             "type": "string",
-            "max": 3000,
+            "max": 5000,
             "length": true,
             "description": "Song brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "negative_tags": {
@@ -2880,14 +3192,20 @@
           },
           "style_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Style adherence weight (0-1)."
           },
           "weirdness_constraint": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Weirdness constraint (0-1)."
           },
           "audio_weight": {
             "type": "number",
+            "max": 1,
+            "min": 0,
             "description": "Audio weight (0-1)."
           },
           "vocal_mode": {
@@ -2902,20 +3220,26 @@
           },
           "prompt": {
             "type": "string",
-            "max": 3000,
+            "max": 5000,
             "length": true,
             "description": "Song brief for automatic lyrics."
           },
           "lyrics": {
             "type": "string",
+            "max": 5000,
+            "length": true,
             "description": "Exact lyrics to sing."
           },
           "style": {
             "type": "string",
+            "max": 1000,
+            "length": true,
             "description": "Music style."
           },
           "title": {
             "type": "string",
+            "max": 80,
+            "length": true,
             "description": "Music title."
           },
           "negative_tags": {
