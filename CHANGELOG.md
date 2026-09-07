@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.3.4](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.3.4) - 2026-09-07
+
+### Fixed
+- Add optional prompt input for Suno add samples requests.
+
+
 ## [v0.3.3](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.3.3) - 2026-09-04
 
 ### Changed
