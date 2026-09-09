@@ -2104,6 +2104,36 @@
         }
       }
     },
+    "suno/generate-persona": {
+      "model": "Suno",
+      "endpoint": "generate_persona",
+      "task_type": "synchronous",
+      "models": [],
+      "fields_by_model": {
+        "_": {
+          "task_id": {
+            "type": "string",
+            "required": true,
+            "description": "Source task ID with reference vocals."
+          },
+          "audio_id": {
+            "type": "string",
+            "required": true,
+            "description": "Audio ID within the source task."
+          },
+          "name": {
+            "type": "string",
+            "required": true,
+            "description": "Persona name."
+          },
+          "description": {
+            "type": "string",
+            "required": true,
+            "description": "Persona description."
+          }
+        }
+      }
+    },
     "suno/inspire-music": {
       "model": "Suno",
       "endpoint": "inspire_music",

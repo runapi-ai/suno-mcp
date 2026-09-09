@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.3.5](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.3.5) - 2026-09-09
+
+### Added
+- Expose the generate_persona tool and the complete Style Persona workflow for supported music operations.
+
+
 ## [v0.3.4](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.3.4) - 2026-09-07
 
 ### Fixed
