@@ -1,5 +1,16 @@
 # Changelog
 
+## [v0.3.6](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.3.6) - 2026-09-16
+
+### Added
+- Add Suno V6 model variants and supported operations to the Suno MCP server.
+- Expose persona, voice, style-expansion, timestamped-lyrics, audio-export, music-visualization, and music-from-sample tools, one per capability.
+
+### Changed
+- Expose the canonical Voice handle only on the supported Suno V5.5 music request shape.
+- Report each Suno capability once, using the provider-neutral resource request shape instead of the legacy operation shape it replaces.
+
+
 ## [v0.3.5](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.3.5) - 2026-09-09
 
 ### Added

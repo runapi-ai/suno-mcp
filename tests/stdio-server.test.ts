@@ -35,7 +35,8 @@ describe("suno stdio MCP server", () => {
     expect(tsxPath).toBeDefined();
     tempHome = fs.mkdtempSync(path.join(os.tmpdir(), "runapi-mcp-home-"));
     runtimePricingAvailable = true;
-    api = createRuntimeApi(() => runtimePricingAvailable);
+    const requestedPaths: Array<{method: string; url: string}> = [];
+    api = createRuntimeApi(() => runtimePricingAvailable, (request: {method: string; url: string}) => requestedPaths.push(request));
     await new Promise<void>((resolve) => api!.listen(0, "127.0.0.1", resolve));
     const apiUrl = `http://127.0.0.1:${(api.address() as AddressInfo).port}`;
 
@@ -57,12 +58,42 @@ describe("suno stdio MCP server", () => {
 
     const tools = await client.listTools();
     const names = tools.tools.map((tool) => tool.name).sort();
-    expect(names).toEqual(["add_samples","blend_lyrics","check_pricing","cover_audio","create_mashup","extend_music","generate_lyrics","generate_persona","get_task","inspire_music","login","remaster_audio","separate_audio_stems","stitch_audio","text_to_music","text_to_sound"]);
+    expect(names).toEqual(["add_samples","blend_lyrics","boost_style","check_pricing","convert_audio","cover_audio","create_mashup","extend_music","generate_lyrics","generate_persona","generate_voice","get_task","get_timestamped_lyrics","inspire_music","login","remaster_audio","separate_audio_stems","stitch_audio","text_to_music","text_to_sound","visualize_music"]);
 
     const textToMusic = tools.tools.find((tool) => tool.name === "text_to_music");
     expect(textToMusic?.inputSchema.properties?.prompt).toMatchObject({"type":"string","maxLength":5000});
 
-    for (const endpoint of ["generate_persona"]) {
+    // An action published on its own public route must create and poll there
+    // instead of the model line's derived route.
+    const routedActions: Record<string, {route: string; arguments: Record<string, unknown>; polls: boolean}> = {
+      "convert_audio": {route: "/api/v1/audio_exports", arguments: {"source_audio_id":"runapi route sample","wait":false}, polls: true},
+      "add_samples": {route: "/api/v1/music_from_sample", arguments: {"audio_url":"runapi route sample","start_seconds":1,"end_seconds":2,"wait":false}, polls: true},
+      "visualize_music": {route: "/api/v1/music_visualizations", arguments: {"source_audio_id":"runapi route sample","wait":false}, polls: true},
+      "generate_persona": {route: "/api/v1/personas", arguments: {"source_task_id":"runapi route sample","source_audio_id":"runapi route sample","name":"runapi route sample","description":"runapi route sample"}, polls: false},
+      "boost_style": {route: "/api/v1/style_expansions", arguments: {"description":"runapi route sample"}, polls: false},
+      "get_timestamped_lyrics": {route: "/api/v1/timestamped_lyrics", arguments: {"source_audio_id":"runapi route sample"}, polls: false},
+      "generate_voice": {route: "/api/v1/voices", arguments: {"source_audio_url":"runapi route sample"}, polls: false}
+    };
+    for (const [endpoint, routed] of Object.entries(routedActions)) {
+      const created = await client.callTool({ name: endpoint, arguments: routed.arguments });
+      const createdContent = created.content?.[0];
+      if (!createdContent || createdContent.type !== "text") {
+        throw new Error("Expected text tool response");
+      }
+      expect(requestedPaths[requestedPaths.length - 1], `${endpoint} must create on its public route`).toEqual({method: "POST", url: routed.route});
+
+      if (!routed.polls) {
+        continue;
+      }
+
+      const polled = await client.callTool({ name: "get_task", arguments: {task_id: "550e8400-e29b-41d4-a716-446655440000", action: endpoint} });
+      const polledContent = polled.content?.[0];
+      if (!polledContent || polledContent.type !== "text") {
+        throw new Error("Expected text tool response");
+      }
+      expect(requestedPaths[requestedPaths.length - 1], `${endpoint} must poll its public route`).toEqual({method: "GET", url: `${routed.route}/550e8400-e29b-41d4-a716-446655440000`});
+    }
+    for (const endpoint of ["generate_persona","boost_style","get_timestamped_lyrics","generate_voice"]) {
       const tool = tools.tools.find((candidate) => candidate.name === endpoint);
       expect(tool?.inputSchema.properties, `${endpoint} is synchronous and must not expose polling controls`).not.toHaveProperty("wait");
     }
@@ -87,7 +118,7 @@ describe("suno stdio MCP server", () => {
 
     // A model offered on several endpoints must report every endpoint's price
     // without naming one, not silently price only the first endpoint found.
-    const multiEndpointModels: Record<string, string[]> = {"suno-v4":["add_samples","cover_audio","create_mashup","extend_music","inspire_music","remaster_audio","stitch_audio","text_to_music"],"suno-v4.5":["add_samples","cover_audio","create_mashup","extend_music","inspire_music","remaster_audio","stitch_audio","text_to_music"],"suno-v4.5-plus":["add_samples","cover_audio","create_mashup","extend_music","inspire_music","remaster_audio","stitch_audio","text_to_music"],"suno-v5":["add_samples","cover_audio","create_mashup","extend_music","inspire_music","remaster_audio","stitch_audio","text_to_music","text_to_sound"],"suno-v5.5":["add_samples","cover_audio","create_mashup","extend_music","inspire_music","remaster_audio","stitch_audio","text_to_music","text_to_sound"],"suno-v4.5-all":["cover_audio","create_mashup","extend_music","text_to_music"]};
+    const multiEndpointModels: Record<string, string[]> = {"suno-v4":["cover_audio","create_mashup","extend_music","inspire_music","add_samples","remaster_audio","stitch_audio","text_to_music"],"suno-v4.5":["cover_audio","create_mashup","extend_music","inspire_music","add_samples","remaster_audio","stitch_audio","text_to_music"],"suno-v4.5-all":["cover_audio","create_mashup","extend_music","text_to_music"],"suno-v4.5-plus":["cover_audio","create_mashup","extend_music","inspire_music","add_samples","remaster_audio","stitch_audio","text_to_music"],"suno-v5":["cover_audio","create_mashup","extend_music","inspire_music","add_samples","remaster_audio","stitch_audio","text_to_music","text_to_sound"],"suno-v5.5":["cover_audio","create_mashup","extend_music","inspire_music","add_samples","remaster_audio","stitch_audio","text_to_music","text_to_sound"],"suno-v6":["cover_audio","create_mashup","extend_music","text_to_music"],"suno-v6-mini":["cover_audio","create_mashup","extend_music","text_to_music"],"suno-v6-wild":["cover_audio","create_mashup","extend_music","text_to_music"]};
     for (const [model, actions] of Object.entries(multiEndpointModels)) {
       const spread = await client.callTool({ name: "check_pricing", arguments: { model } });
       const spreadContent = spread.content?.[0];
@@ -116,8 +147,9 @@ describe("suno stdio MCP server", () => {
   });
 });
 
-function createRuntimeApi(runtimeAvailable: () => boolean): Server {
+function createRuntimeApi(runtimeAvailable: () => boolean, recordRequest?: (request: {method: string; url: string}) => void): Server {
   return createServer((request, response) => {
+    recordRequest?.({method: request.method ?? "GET", url: request.url ?? ""});
     response.setHeader("content-type", "application/json");
     if (request.method === "POST" && request.url?.startsWith("/api/v1/")) {
       response.end(JSON.stringify({

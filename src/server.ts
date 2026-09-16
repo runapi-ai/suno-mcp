@@ -61,6 +61,17 @@ function rulesForAction(action: ContractAction): InputRule[] {
   return action.rules ?? [];
 }
 
+// A provider-neutral resource publishes its own public route instead of
+// living under the model line's service slug.
+function routeForEndpoint(contract: Contract, endpoint: string): string | undefined {
+  for (const action of Object.values(contract.actions)) {
+    if (action.endpoint === endpoint && action.path) {
+      return action.path;
+    }
+  }
+  return undefined;
+}
+
 function buildTools(contract: Contract): { tools: ModelServerTool[]; inputRules: Record<string, InputRule[]> } {
   const tools: ModelServerTool[] = [];
   const inputRules: Record<string, InputRule[]> = {};
@@ -139,7 +150,7 @@ function registerSynchronousTools(server: McpServer, contract: Contract, client:
             });
           }
 
-          const result = await client.createTask(service, endpoint, body);
+          const result = await client.createTask(service, endpoint, body, undefined, action.path);
           return jsonText({ result });
         } catch (error) {
           return jsonText({ error: friendlyError(error) });
@@ -174,7 +185,8 @@ function registerLineTools(server: McpServer, contract: Contract, client: RunApi
       },
       async ({ task_id, action }) => {
         try {
-          const task = await client.getTask(service, task_id, action ?? asynchronousEndpoints[0]);
+          const endpoint = action ?? asynchronousEndpoints[0];
+          const task = await client.getTask(service, task_id, endpoint, {route: routeForEndpoint(contract, endpoint)});
           return jsonText({ task_id, status: taskStatus(task), task });
         } catch (error) {
           return jsonText({ error: friendlyError(error) });
