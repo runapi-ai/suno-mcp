@@ -3215,17 +3215,26 @@
           "model": {
             "type": "string",
             "required": true,
-            "description": "Model slug."
+            "description": "Target render model for the remaster; may differ from the source task's model."
           },
           "source_task_id": {
             "type": "string",
             "required": true,
-            "description": "Completed source task ID."
+            "description": "Completed Suno music task ID; any model version and any channel is accepted as the source."
           },
           "audio_id": {
             "type": "string",
             "required": true,
             "description": "Audio ID within the source task."
+          },
+          "variation_category": {
+            "type": "string",
+            "enum": [
+              "subtle",
+              "normal",
+              "high"
+            ],
+            "description": "How far the remaster may drift from the original. Applies to suno-v5 and suno-v5.5 targets; defaults to normal."
           },
           "callback_url": {
             "type": "string",
@@ -3236,17 +3245,26 @@
           "model": {
             "type": "string",
             "required": true,
-            "description": "Model slug."
+            "description": "Target render model for the remaster; may differ from the source task's model."
           },
           "source_task_id": {
             "type": "string",
             "required": true,
-            "description": "Completed source task ID."
+            "description": "Completed Suno music task ID; any model version and any channel is accepted as the source."
           },
           "audio_id": {
             "type": "string",
             "required": true,
             "description": "Audio ID within the source task."
+          },
+          "variation_category": {
+            "type": "string",
+            "enum": [
+              "subtle",
+              "normal",
+              "high"
+            ],
+            "description": "How far the remaster may drift from the original. Applies to suno-v5 and suno-v5.5 targets; defaults to normal."
           },
           "callback_url": {
             "type": "string",
@@ -3257,17 +3275,26 @@
           "model": {
             "type": "string",
             "required": true,
-            "description": "Model slug."
+            "description": "Target render model for the remaster; may differ from the source task's model."
           },
           "source_task_id": {
             "type": "string",
             "required": true,
-            "description": "Completed source task ID."
+            "description": "Completed Suno music task ID; any model version and any channel is accepted as the source."
           },
           "audio_id": {
             "type": "string",
             "required": true,
             "description": "Audio ID within the source task."
+          },
+          "variation_category": {
+            "type": "string",
+            "enum": [
+              "subtle",
+              "normal",
+              "high"
+            ],
+            "description": "How far the remaster may drift from the original. Applies to suno-v5 and suno-v5.5 targets; defaults to normal."
           },
           "callback_url": {
             "type": "string",
@@ -3278,17 +3305,26 @@
           "model": {
             "type": "string",
             "required": true,
-            "description": "Model slug."
+            "description": "Target render model for the remaster; may differ from the source task's model."
           },
           "source_task_id": {
             "type": "string",
             "required": true,
-            "description": "Completed source task ID."
+            "description": "Completed Suno music task ID; any model version and any channel is accepted as the source."
           },
           "audio_id": {
             "type": "string",
             "required": true,
             "description": "Audio ID within the source task."
+          },
+          "variation_category": {
+            "type": "string",
+            "enum": [
+              "subtle",
+              "normal",
+              "high"
+            ],
+            "description": "How far the remaster may drift from the original. Applies to suno-v5 and suno-v5.5 targets; defaults to normal."
           },
           "callback_url": {
             "type": "string",
@@ -3299,17 +3335,26 @@
           "model": {
             "type": "string",
             "required": true,
-            "description": "Model slug."
+            "description": "Target render model for the remaster; may differ from the source task's model."
           },
           "source_task_id": {
             "type": "string",
             "required": true,
-            "description": "Completed source task ID."
+            "description": "Completed Suno music task ID; any model version and any channel is accepted as the source."
           },
           "audio_id": {
             "type": "string",
             "required": true,
             "description": "Audio ID within the source task."
+          },
+          "variation_category": {
+            "type": "string",
+            "enum": [
+              "subtle",
+              "normal",
+              "high"
+            ],
+            "description": "How far the remaster may drift from the original. Applies to suno-v5 and suno-v5.5 targets; defaults to normal."
           },
           "callback_url": {
             "type": "string",

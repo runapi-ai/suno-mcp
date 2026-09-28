@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.3.7](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.3.7) - 2026-09-28
+
+### Added
+- Document remaster_audio's optional variation_category and updated source constraints in the Suno MCP contract.
+
+
 ## [v0.3.6](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.3.6) - 2026-09-16
 
 ### Added
