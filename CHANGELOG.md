@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.3.8](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.3.8) - 2026-09-29
+
+### Fixed
+- Document the 200-character limit on the generate_lyrics prompt and on negative_tags in the Suno MCP contract.
+
+
 ## [v0.3.7](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.3.7) - 2026-09-28
 
 ### Added

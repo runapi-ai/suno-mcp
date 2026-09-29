@@ -205,6 +205,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -297,6 +299,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -389,6 +393,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -481,6 +487,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -573,6 +581,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -665,6 +675,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -757,6 +769,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -849,6 +863,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -941,6 +957,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         }
@@ -1938,6 +1956,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -2048,6 +2068,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -2158,6 +2180,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -2268,6 +2292,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -2378,6 +2404,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -2488,6 +2516,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -2598,6 +2628,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -2708,6 +2740,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         },
@@ -2818,6 +2852,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           }
         }
@@ -2832,6 +2868,8 @@
         "_": {
           "prompt": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "required": true,
             "description": "Lyrics generation prompt."
           },
@@ -3830,6 +3868,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           },
           "persona_id": {
@@ -3931,6 +3971,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           },
           "persona_id": {
@@ -4032,6 +4074,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           },
           "persona_id": {
@@ -4133,6 +4177,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           },
           "persona_id": {
@@ -4234,6 +4280,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           },
           "persona_id": {
@@ -4335,6 +4383,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           },
           "persona_id": {
@@ -4436,6 +4486,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           },
           "persona_id": {
@@ -4537,6 +4589,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           },
           "persona_id": {
@@ -4638,6 +4692,8 @@
           },
           "negative_tags": {
             "type": "string",
+            "max": 200,
+            "length": true,
             "description": "Styles to avoid."
           },
           "persona_id": {
