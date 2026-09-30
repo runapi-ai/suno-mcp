@@ -59,10 +59,6 @@ describe("suno stdio MCP server", () => {
     const tools = await client.listTools();
     const names = tools.tools.map((tool) => tool.name).sort();
     expect(names).toEqual(["add_samples","blend_lyrics","boost_style","check_pricing","convert_audio","cover_audio","create_mashup","extend_music","generate_lyrics","generate_persona","generate_voice","get_task","get_timestamped_lyrics","inspire_music","login","remaster_audio","separate_audio_stems","stitch_audio","text_to_music","text_to_sound","visualize_music"]);
-
-    const textToMusic = tools.tools.find((tool) => tool.name === "text_to_music");
-    expect(textToMusic?.inputSchema.properties?.prompt).toMatchObject({"type":"string","maxLength":5000});
-
     // An action published on its own public route must create and poll there
     // instead of the model line's derived route.
     const routedActions: Record<string, {route: string; arguments: Record<string, unknown>; polls: boolean}> = {

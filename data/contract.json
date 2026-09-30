@@ -74,47 +74,6 @@
         "suno-v6-mini",
         "suno-v6-wild"
       ],
-      "rules": [
-        {
-          "when": {
-            "vocal_mode": "auto_lyrics"
-          },
-          "required": [
-            "prompt"
-          ],
-          "forbidden": [
-            "lyrics",
-            "style",
-            "title"
-          ]
-        },
-        {
-          "when": {
-            "vocal_mode": "exact_lyrics"
-          },
-          "required": [
-            "lyrics",
-            "style",
-            "title"
-          ],
-          "forbidden": [
-            "prompt"
-          ]
-        },
-        {
-          "when": {
-            "vocal_mode": "instrumental"
-          },
-          "required": [
-            "style",
-            "title"
-          ],
-          "forbidden": [
-            "prompt",
-            "lyrics"
-          ]
-        }
-      ],
       "fields_by_model": {
         "suno-v4": {
           "callback_url": {
@@ -978,47 +937,6 @@
         "suno-v6",
         "suno-v6-mini",
         "suno-v6-wild"
-      ],
-      "rules": [
-        {
-          "when": {
-            "vocal_mode": "auto_lyrics"
-          },
-          "required": [
-            "prompt"
-          ],
-          "forbidden": [
-            "lyrics",
-            "style",
-            "title"
-          ]
-        },
-        {
-          "when": {
-            "vocal_mode": "exact_lyrics"
-          },
-          "required": [
-            "lyrics",
-            "style",
-            "title"
-          ],
-          "forbidden": [
-            "prompt"
-          ]
-        },
-        {
-          "when": {
-            "vocal_mode": "instrumental"
-          },
-          "required": [
-            "style",
-            "title"
-          ],
-          "forbidden": [
-            "prompt",
-            "lyrics"
-          ]
-        }
       ],
       "fields_by_model": {
         "suno-v4": {
@@ -3406,16 +3324,6 @@
       "endpoint": "separate_audio_stems",
       "task_type": "asynchronous",
       "models": [],
-      "rules": [
-        {
-          "when": {
-            "type": "split_stem_advanced"
-          },
-          "required": [
-            "stem_name"
-          ]
-        }
-      ],
       "fields_by_model": {
         "_": {
           "task_id": {
@@ -3698,102 +3606,6 @@
         "suno-v6",
         "suno-v6-mini",
         "suno-v6-wild"
-      ],
-      "rules": [
-        {
-          "when": {
-            "vocal_mode": "auto_lyrics"
-          },
-          "required": [
-            "prompt"
-          ],
-          "forbidden": [
-            "lyrics",
-            "style",
-            "title",
-            "negative_tags",
-            "vocal_gender",
-            "duration_seconds"
-          ]
-        },
-        {
-          "when": {
-            "vocal_mode": "exact_lyrics"
-          },
-          "required": [
-            "lyrics",
-            "style",
-            "title"
-          ],
-          "forbidden": [
-            "prompt"
-          ]
-        },
-        {
-          "when": {
-            "vocal_mode": "instrumental"
-          },
-          "required": [
-            "style",
-            "title"
-          ],
-          "forbidden": [
-            "prompt",
-            "lyrics",
-            "vocal_gender"
-          ]
-        },
-        {
-          "when": {
-            "model": "suno-v4"
-          },
-          "forbidden": [
-            "duration_seconds"
-          ]
-        },
-        {
-          "when": {
-            "model": "suno-v4.5"
-          },
-          "forbidden": [
-            "duration_seconds"
-          ]
-        },
-        {
-          "when": {
-            "model": "suno-v4.5-all"
-          },
-          "forbidden": [
-            "duration_seconds"
-          ]
-        },
-        {
-          "when": {
-            "model": "suno-v4.5-plus"
-          },
-          "forbidden": [
-            "duration_seconds"
-          ]
-        },
-        {
-          "when": {
-            "model": "suno-v5"
-          },
-          "forbidden": [
-            "duration_seconds"
-          ]
-        },
-        {
-          "when": {
-            "voice_id": {
-              "present": true
-            }
-          },
-          "forbidden": [
-            "persona_id",
-            "persona_type"
-          ]
-        }
       ],
       "fields_by_model": {
         "suno-v4": {

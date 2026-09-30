@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "zod/v4";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import {
   createModelServer,
@@ -12,12 +12,9 @@ import {
   RunApiClient,
   runtimePricingErrorMessage,
   taskStatus,
-  validateInputRules,
-  validateParams,
-  zodShapeForFields,
+  mcpZodObjectForFields,
   type Contract,
   type ContractAction,
-  type InputRule,
   type ModelInfo,
   type ModelServerTool,
 } from "@runapi.ai/mcp-core";
@@ -47,20 +44,6 @@ function lineEndpoints(contract: Contract, filter?: "synchronous" | "asynchronou
   return [...seen];
 }
 
-function lineModels(contract: Contract): string[] {
-  const seen = new Set<string>();
-  for (const action of Object.values(contract.actions)) {
-    for (const model of action.models) {
-      seen.add(model);
-    }
-  }
-  return [...seen];
-}
-
-function rulesForAction(action: ContractAction): InputRule[] {
-  return action.rules ?? [];
-}
-
 // A provider-neutral resource publishes its own public route instead of
 // living under the model line's service slug.
 function routeForEndpoint(contract: Contract, endpoint: string): string | undefined {
@@ -72,9 +55,8 @@ function routeForEndpoint(contract: Contract, endpoint: string): string | undefi
   return undefined;
 }
 
-function buildTools(contract: Contract): { tools: ModelServerTool[]; inputRules: Record<string, InputRule[]> } {
+function buildTools(contract: Contract): ModelServerTool[] {
   const tools: ModelServerTool[] = [];
-  const inputRules: Record<string, InputRule[]> = {};
 
   for (const [key, action] of Object.entries(contract.actions)) {
     if (taskType(action) === "synchronous") {
@@ -89,10 +71,9 @@ function buildTools(contract: Contract): { tools: ModelServerTool[]; inputRules:
       action: endpoint,
       models: action.models
     });
-    inputRules[endpoint] = rulesForAction(action);
   }
 
-  return { tools, inputRules };
+  return tools;
 }
 
 async function runtimePricingFor(info: ModelInfo, client: RunApiClient) {
@@ -118,38 +99,25 @@ function registerSynchronousTools(server: McpServer, contract: Contract, client:
 
     const service = key.split("/")[0];
     const endpoint = action.endpoint;
-    const shape: Record<string, z.ZodTypeAny> = zodShapeForFields(declaredFieldsForAction(action));
+    const shape: Record<string, z.ZodType> = {};
     if (action.models.length > 0) {
-      shape.model = z.enum(action.models as [string, ...string[]]).optional().describe("RunAPI model slug for this model line.");
+      shape.model = z.unknown().optional().meta({ type: "string" }).describe("RunAPI model slug for this model line.");
     }
 
-    server.tool(
+    server.registerTool(
       endpoint,
-      `Run a synchronous ${action.model} operation on RunAPI (${endpoint.replace(/_/g, " ")}). Returns the operation result.`,
-      shape,
+      {
+        description: `Run a synchronous ${action.model} operation on RunAPI (${endpoint.replace(/_/g, " ")}). Returns the operation result.`,
+        inputSchema: mcpZodObjectForFields(declaredFieldsForAction(action), shape)
+      },
       async (args) => {
         const { model, ...params } = args as Record<string, unknown> & { model?: string };
         try {
-          const info = findModelForAction(service, endpoint, model, contract);
-          if (!info) {
-            return jsonText({
-              error: "Unsupported RunAPI service/action/model combination.",
-              hint: "This model server was generated for a specific model line; verify the requested model."
-            });
-          }
-
-          const body = validateParams(info.fields, {
+          const selectedModel = model === undefined ? action.models[0] : model;
+          const body = {
             ...params,
-            ...(info.model ? { model: info.model } : {})
-          });
-          const ruleError = validateInputRules(action.rules ?? [], body);
-          if (ruleError) {
-            return jsonText({
-              error: `Invalid RunAPI parameters: ${ruleError}`,
-              hint: "Adjust the parameters to satisfy the endpoint input rules before retrying."
-            });
-          }
-
+            ...(action.models.length > 0 ? { model: selectedModel } : {})
+          };
           const result = await client.createTask(service, endpoint, body, undefined, action.path);
           return jsonText({ result });
         } catch (error) {
@@ -164,9 +132,7 @@ function registerLineTools(server: McpServer, contract: Contract, client: RunApi
   const service = lineService(contract);
   const endpoints = lineEndpoints(contract);
   const asynchronousEndpoints = lineEndpoints(contract, "asynchronous");
-  const models = lineModels(contract);
   const endpointEnum = endpoints.length > 0 ? z.enum(endpoints as [string, ...string[]]) : z.string();
-  const modelEnum = models.length > 0 ? z.enum(models as [string, ...string[]]) : z.string();
 
   if (asynchronousEndpoints.length > 0) {
     const asynchronousEndpointEnum = z.enum(asynchronousEndpoints as [string, ...string[]]);
@@ -199,26 +165,27 @@ function registerLineTools(server: McpServer, contract: Contract, client: RunApi
     "check_pricing",
     `Look up RunAPI pricing for the ${META.lineSlug} model line.`,
     {
-      model: modelEnum.optional().describe("Model slug. Defaults to the line's primary model."),
+      model: z.string().optional().describe("Model slug. Defaults to the line's primary model."),
       action: endpointEnum.optional().describe("Endpoint name. Defaults to the endpoint that offers the model.")
     },
     async ({ model, action }) => {
       const noMatch = { supported: false, message: "No matching model/endpoint in this model line." };
+      const priced = async (info: ModelInfo) =>
+        jsonText({ supported: true, model: info.model, service: info.service, action: info.action, price: await runtimePricingFor(info, client) });
+      // No-model endpoints stay model-less; otherwise price the requested model.
+      const withModel = (info: ModelInfo): ModelInfo =>
+        info.model === undefined || model === undefined ? info : { ...info, model };
 
       // Explicit endpoint: price exactly that model on that endpoint.
       if (action) {
-        const info = findModelForAction(service, action, model, contract);
-        return info
-          ? jsonText({ supported: true, model: info.model, service: info.service, action: info.action, price: await runtimePricingFor(info, client) })
-          : jsonText(noMatch);
+        const info = findModelForAction(service, action, undefined, contract);
+        return info ? priced(withModel(info)) : jsonText(noMatch);
       }
 
       // No endpoint and no model: price the line's primary model/endpoint.
       if (!model) {
         const info = findModelForAction(service, endpoints[0], undefined, contract);
-        return info
-          ? jsonText({ supported: true, model: info.model, service: info.service, action: info.action, price: await runtimePricingFor(info, client) })
-          : jsonText(noMatch);
+        return info ? priced(info) : jsonText(noMatch);
       }
 
       // No endpoint named: a model may be offered on several endpoints at
@@ -226,11 +193,11 @@ function registerLineTools(server: McpServer, contract: Contract, client: RunApi
       // silently pricing only the first one found.
       const matches = findModels(model, contract);
       if (matches.length === 0) {
-        return jsonText(noMatch);
+        const info = endpoints.length === 1 ? findModelForAction(service, endpoints[0], undefined, contract) : undefined;
+        return info ? priced(withModel(info)) : jsonText(noMatch);
       }
       if (matches.length === 1) {
-        const info = matches[0];
-        return jsonText({ supported: true, model: info.model, service: info.service, action: info.action, price: await runtimePricingFor(info, client) });
+        return priced(matches[0]);
       }
       return jsonText({
         supported: true,
@@ -244,7 +211,7 @@ function registerLineTools(server: McpServer, contract: Contract, client: RunApi
 
 export function createServer(): McpServer {
   const contract = readContract();
-  const { tools, inputRules } = buildTools(contract);
+  const tools = buildTools(contract);
   const client = new RunApiClient();
 
   const server = createModelServer({
@@ -252,7 +219,6 @@ export function createServer(): McpServer {
     version: META.version,
     lineSlug: META.lineSlug,
     contract,
-    inputRules,
     tools,
     client
   });
