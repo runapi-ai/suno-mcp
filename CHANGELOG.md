@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.4.1](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.4.1) - 2026-10-15
+
+### Fixed
+- Generate historical task lookup routes independently of callable model metadata.
+
+
 ## [v0.4.0](https://github.com/runapi-ai/suno-mcp/releases/tag/v0.4.0) - 2026-09-30
 
 ### Changed

@@ -21,6 +21,8 @@ import {
 import { readContract } from "./data.js";
 import { META } from "./meta.js";
 
+const historicalTaskRoutes: Record<string, string | null> = {"stitch_audio":null,"remaster_audio":null,"add_samples":"/api/v1/music_from_sample","inspire_music":null,"blend_lyrics":null,"convert_audio":"/api/v1/audio_exports","cover_audio":null,"create_mashup":null,"extend_music":null,"generate_lyrics":null,"generate_voice":null,"separate_audio_stems":null,"text_to_music":null,"text_to_sound":null,"visualize_music":"/api/v1/music_visualizations"};
+
 type RuntimeContractAction = ContractAction & {
   task_type?: "synchronous" | "asynchronous";
 };
@@ -42,17 +44,6 @@ function lineEndpoints(contract: Contract, filter?: "synchronous" | "asynchronou
     seen.add(action.endpoint);
   }
   return [...seen];
-}
-
-// A provider-neutral resource publishes its own public route instead of
-// living under the model line's service slug.
-function routeForEndpoint(contract: Contract, endpoint: string): string | undefined {
-  for (const action of Object.values(contract.actions)) {
-    if (action.endpoint === endpoint && action.path) {
-      return action.path;
-    }
-  }
-  return undefined;
 }
 
 function buildTools(contract: Contract): ModelServerTool[] {
@@ -131,7 +122,7 @@ function registerSynchronousTools(server: McpServer, contract: Contract, client:
 function registerLineTools(server: McpServer, contract: Contract, client: RunApiClient): void {
   const service = lineService(contract);
   const endpoints = lineEndpoints(contract);
-  const asynchronousEndpoints = lineEndpoints(contract, "asynchronous");
+  const asynchronousEndpoints = Object.keys(historicalTaskRoutes);
   const endpointEnum = endpoints.length > 0 ? z.enum(endpoints as [string, ...string[]]) : z.string();
 
   if (asynchronousEndpoints.length > 0) {
@@ -152,7 +143,7 @@ function registerLineTools(server: McpServer, contract: Contract, client: RunApi
       async ({ task_id, action }) => {
         try {
           const endpoint = action ?? asynchronousEndpoints[0];
-          const task = await client.getTask(service, task_id, endpoint, {route: routeForEndpoint(contract, endpoint)});
+          const task = await client.getTask(service, task_id, endpoint, {route: historicalTaskRoutes[endpoint] ?? undefined});
           return jsonText({ task_id, status: taskStatus(task), task });
         } catch (error) {
           return jsonText({ error: friendlyError(error) });
@@ -170,6 +161,9 @@ function registerLineTools(server: McpServer, contract: Contract, client: RunApi
     },
     async ({ model, action }) => {
       const noMatch = { supported: false, message: "No matching model/endpoint in this model line." };
+      if (endpoints.length === 0) {
+        return jsonText(noMatch);
+      }
       const priced = async (info: ModelInfo) =>
         jsonText({ supported: true, model: info.model, service: info.service, action: info.action, price: await runtimePricingFor(info, client) });
       // No-model endpoints stay model-less; otherwise price the requested model.

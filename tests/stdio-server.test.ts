@@ -94,6 +94,25 @@ describe("suno stdio MCP server", () => {
       expect(tool?.inputSchema.properties, `${endpoint} is synchronous and must not expose polling controls`).not.toHaveProperty("wait");
     }
 
+    const historicalRoutes: Record<string, string | null> = {"stitch_audio":null,"remaster_audio":null,"add_samples":"/api/v1/music_from_sample","inspire_music":null,"blend_lyrics":null,"convert_audio":"/api/v1/audio_exports","cover_audio":null,"create_mashup":null,"extend_music":null,"generate_lyrics":null,"generate_voice":null,"separate_audio_stems":null,"text_to_music":null,"text_to_sound":null,"visualize_music":"/api/v1/music_visualizations"};
+    const historicalTaskId = "550e8400-e29b-41d4-a716-446655440000";
+    const getTaskTool = tools.tools.find((tool) => tool.name === "get_task");
+    if (getTaskTool) {
+      expect(getTaskTool.inputSchema.properties?.action).toMatchObject({enum: Object.keys(historicalRoutes)});
+    }
+    for (const [endpoint, route] of Object.entries(historicalRoutes)) {
+      const polled = await client.callTool({name: "get_task", arguments: {task_id: historicalTaskId, action: endpoint}});
+      const polledContent = polled.content?.[0];
+      if (!polledContent || polledContent.type !== "text") {
+        throw new Error("Expected historical task response");
+      }
+      expect(JSON.parse(polledContent.text)).toMatchObject({task_id: historicalTaskId, status: "completed"});
+      expect(requestedPaths[requestedPaths.length - 1]).toEqual({
+        method: "GET",
+        url: `${route ?? "/api/v1/suno/" + endpoint}/${historicalTaskId}`
+      });
+    }
+
     const pricing = await client.callTool({ name: "check_pricing", arguments: {} });
     const content = pricing.content?.[0];
     if (!content || content.type !== "text") {
@@ -153,6 +172,10 @@ function createRuntimeApi(runtimeAvailable: () => boolean, recordRequest?: (requ
         status: "queued",
         billing: {reservation: {amount_cents: 37}, settlement: null, refund: null}
       }));
+      return;
+    }
+    if (request.method === "GET" && request.url?.endsWith("/550e8400-e29b-41d4-a716-446655440000")) {
+      response.end(JSON.stringify({id: "550e8400-e29b-41d4-a716-446655440000", status: "completed"}));
       return;
     }
     if (!request.url?.startsWith("/api/v1/price_schedules")) {
